@@ -2,7 +2,6 @@ package com.tygr.inspectors.service;
 
 import com.tygr.inspectors.modules.XAST.VSG.InspectVSG;
 import com.tygr.inspectors.modules.XAST.VSG.LanguageVSG;
-import com.tygr.inspectors.modules.XAST.VSG.ReportTypeVSG;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -15,7 +14,8 @@ public final class XASTService {
     public String xast() {
         InspectVSG inspector = new InspectVSG(path_exector_vsg);
         inspector.setLanguage(LanguageVSG.CS);
-        inspector.setReportType(ReportTypeVSG.CSV);
+        // inspector.setReportType(ReportTypeVSG.CSV);
+        inspector.setReportType("csv");
         String cmdScript = inspector.inspect("C:\\Users\\lungyu\\Documents\\GitHub\\NYUST_MIPL_ImageToolBox",
                 "C:\\Users\\lungyu\\Desktop\\VSG\\VS2019_TEST");
 
