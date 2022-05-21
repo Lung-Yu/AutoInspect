@@ -11,14 +11,12 @@ public final class XASTService {
     @Value("${path.executor.vsg:C:\\Program Files (x86)\\VisualCodeGrepper\\VisualCodeGrepper.exe}")
     private String path_exector_vsg;
 
-    public String xast() {
+    public String xast(String folderOfInspectTarget, String folderOfReport) {
         InspectVSG inspector = new InspectVSG(path_exector_vsg);
         inspector.setLanguage(LanguageVSG.CS);
         // inspector.setReportType(ReportTypeVSG.CSV);
         inspector.setReportType("csv");
-        String cmdScript = inspector.inspect("C:\\Users\\lungyu\\Documents\\GitHub\\NYUST_MIPL_ImageToolBox",
-                "C:\\Users\\lungyu\\Desktop\\VSG\\VS2019_TEST");
-
+        String cmdScript = inspector.inspect(folderOfInspectTarget, folderOfReport);
         return cmdScript;
     }
 }
